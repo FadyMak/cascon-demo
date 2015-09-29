@@ -1,2 +1,2 @@
-# node-dj
-A NodeJS audio streaming and music requests web app
+# Cascon 2015 Demo
+A collaborative whiteboard written in NodeJS
