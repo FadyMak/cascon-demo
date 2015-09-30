@@ -7,6 +7,7 @@
     App.socket = io.connect()
     
     var clr = "#000000";
+    var brs = "1";
     // Draw Function
     App.draw = function(data) {
         if (data.type == "dragstart") {
@@ -22,6 +23,7 @@
 
         console.log(clr);
         App.ctx.strokeStyle = clr;
+        App.ctx.lineWidth = brs;
     }
 
     function colorChange()
@@ -29,22 +31,31 @@
         clr = "#" + document.getElementById('colorIn').value;
     }
     
+    function pencil()
+    {
+        clr = "#" + document.getElementById('colorIn').value;
+        brs = "1"
+        //change cursor to paintbrush
+    }
+
     function paintBrush()
     {
         clr = "#" + document.getElementById('colorIn').value;
+        brs = "10"
         //change cursor to paintbrush
     }
    
-    function erase()
+    function eraser()
     {
         clr = "#FFFFFF"
+        brs = "20"
         //change cursor to eraser
     }
 
     function resize()
     {
-        clr = "#FFFFFF"
-        //change cursor to eraser
+        clr = "#" + document.getElementById('colorIn').value;
+        brs = document.getElementById('resizeIn').value
     }
 
     // Draw from other sockets
@@ -67,4 +78,8 @@
 </script>
 
 <input class="color" id="colorIn" value="000000" onchange="colorChange()">
+<input class="pencil" id="pencilIn" type="button" value="Pencil" onclick="pencil()">
+<input class="brush" id="brushIn" type="button" value="Brush" onclick="paintBrush()">
+<input class="eraser" id="eraseIn" type="button" value="Eraser" onclick="eraser()">
+<input class="resize" id="resizeIn" value="Put number then Enter" onchange="resize()">
 <canvas width="2000" height="2000" style=""></canvas>
