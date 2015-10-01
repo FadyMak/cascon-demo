@@ -1,12 +1,28 @@
 var connections = process.argv[2];
+var ioConnections = [];
 // var port = process.argv[3];
 // var connections = process.argv[4];
+
+for (var i = 0; i < connections; i++) {
+  createConnection();
+}
+
+for(var j = 0; j < 100; j++)
+{
+  ioConnections.forEach(drawEmit);
+}
 
 function createConnection() {
   var socket = require('socket.io-client');
   io = socket.connect('http://localhost:8080', { 'force new connection': true });
+  console.log("connection created");
+  ioConnections.push(io);
+}
+
+function drawEmit(io, index, ar)
+{
   io.on('connect', function(){
-    console.log('connected');
+    console.log('connection ', index, ' drawing');
 
     var startx = Math.floor(Math.random() * 800) + 100;
     var starty = Math.floor(Math.random() * 600) + 100;
@@ -39,8 +55,5 @@ function createConnection() {
     io.emit('drawClick', data);
 
   });
-}
-
-for (var i = 0; i < connections; i++) {
-  createConnection();
+  
 }
