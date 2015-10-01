@@ -7,8 +7,8 @@ for (var i = 0; i < connections; i++) {
   createConnection();
 }
 
-for(var j = 0; j < 100; j++)
-{
+//Draw 100 times each connection
+for(var j = 0; j < 100; j++){
   ioConnections.forEach(drawEmit);
 }
 
@@ -19,9 +19,7 @@ function createConnection() {
   ioConnections.push(io);
 }
 
-function drawEmit(io, index, ar)
-{
-  io.on('connect', function(){
+function drawEmit(io, index, ar){
     console.log('connection ', index, ' drawing');
 
     var startx = Math.floor(Math.random() * 800) + 100;
@@ -53,7 +51,4 @@ function drawEmit(io, index, ar)
     };
 
     io.emit('drawClick', data);
-
-  });
-  
 }
