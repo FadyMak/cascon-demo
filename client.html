@@ -5,7 +5,7 @@
 <script>
     App = {}
     App.socket = io.connect()
-    
+
     var clr = "#000000";
     var brs = "1";
     // Draw Function
@@ -30,7 +30,7 @@
     {
         clr = "#" + document.getElementById('colorIn').value;
     }
-    
+
     function pencil()
     {
         clr = "#" + document.getElementById('colorIn').value;
@@ -44,7 +44,7 @@
         brs = "10"
         //change cursor to paintbrush
     }
-   
+
     function eraser()
     {
         clr = "#FFFFFF"
