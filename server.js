@@ -1,5 +1,6 @@
 var express = require('express.io');
 var app = express().http().io();
+var appmetrics = require('appmetrics-dash').start(); 
 
 // Broadcast all draw clicks.
 app.io.route('drawClick', function(req) {
