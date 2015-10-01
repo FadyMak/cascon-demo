@@ -6,8 +6,17 @@
     App = {}
     App.socket = io.connect()
 
+    var drawTools = {
+        PENCIL: "pencil",
+        PAINTBRUSH: "paintbrush",
+        ERASER: "eraser"
+    };
+    
+
     var clr = "#000000";
     var brs = "1";
+    var drawType = drawTools.PENCIL;
+
     // Draw Function
     App.draw = function(data) {
         if (data.type == "dragstart") {
@@ -28,34 +37,48 @@
 
     function colorChange()
     {
-        clr = "#" + document.getElementById('colorIn').value;
+        if(drawType != drawTools.ERASER){
+            clr = "#" + document.getElementById('colorIn').value;
+        }
     }
 
     function pencil()
     {
         clr = "#" + document.getElementById('colorIn').value;
-        brs = "1"
+        brs = brs/10;
+        drawType = drawTools.PENCIL;
+
         //change cursor to paintbrush
+        document.getElementById("canvas").style.cursor = "url('icons/pencil.png') 5 100, auto";
     }
 
     function paintBrush()
     {
         clr = "#" + document.getElementById('colorIn').value;
-        brs = "10"
+        brs = document.getElementById('resizeIn').value;
+        drawType = drawTools.PAINTBRUSH;
+
         //change cursor to paintbrush
+        document.getElementById("canvas").style.cursor = "url('icons/paintbrush.png') 4 100, auto";
     }
 
     function eraser()
     {
-        clr = "#FFFFFF"
-        brs = "20"
+        clr = "#FFFFFF";
+        brs = document.getElementById('resizeIn').value;
+        drawType = drawTools.ERASER;
+
         //change cursor to eraser
+        document.getElementById("canvas").style.cursor = "url('icons/eraser.png') 6 100, auto";
     }
 
     function resize()
     {
-        clr = "#" + document.getElementById('colorIn').value;
-        brs = document.getElementById('resizeIn').value
+        brs = document.getElementById('resizeIn').value;
+        if (drawType == drawTools.PENCIL)
+        {
+            brs = brs/10;
+        }
     }
 
     // Draw from other sockets
@@ -77,9 +100,51 @@
     })
 </script>
 
-<input class="color" id="colorIn" value="000000" onchange="colorChange()">
-<input class="pencil" id="pencilIn" type="button" value="Pencil" onclick="pencil()">
-<input class="brush" id="brushIn" type="button" value="Brush" onclick="paintBrush()">
-<input class="eraser" id="eraseIn" type="button" value="Eraser" onclick="eraser()">
-<input class="resize" id="resizeIn" value="Put number then Enter" onchange="resize()">
-<canvas width="2000" height="2000" style=""></canvas>
+<style>
+.drawTools {
+    background-color: #C1C1C1;
+}
+
+#title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 250%;
+    background-color: #A1A1A1;
+}
+.drawButton {
+    width: 20px;
+    height: 20px;
+}
+
+#canvas {
+    cursor:url('icons/pencil.png') 5 100, auto;
+}
+
+#colorIn {
+    width: 60;
+}
+</style>
+
+<div class="drawTools">
+    <div id="title"> 
+        CASCON 2015 - NODE JS CANVAS DEMO
+    </div>
+    Tools: 
+    <input class="color" id="colorIn" value="000000" onchange="colorChange()">
+    <input class="drawButton" id="pencilIn" type="image" src="icons/pencil.png" value="Pencil" onclick="pencil()">
+    <input class="drawButton" id="brushIn" type="image" src="icons/paintbrush.png" value="Brush" onclick="paintBrush()">
+    <input class="drawButton" id="eraseIn" type="image" src="icons/eraser.png" value="Eraser" onclick="eraser()">
+    <select class="resize" id="resizeIn" value="10" onchange="resize()">
+      <option selected="true" disabled="disabled" value="10">SIZE</option>
+      <option value="10">10</option>
+      <option value="15">15</option>
+      <option value="20">20</option>
+      <option value="25">25</option>
+      <option value="30">30</option>
+      <option value="35">35</option>
+      <option value="40">40</option>
+      <option value="45">45</option>
+      <option value="50">50</option>
+    </select>
+</div>
+<canvas id="canvas" width="2000" height="2000" style=""></canvas>
