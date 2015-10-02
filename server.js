@@ -4,10 +4,11 @@ var appmetrics = require('appmetrics-dash').start();
 
 // Broadcast all draw clicks.
 app.io.route('drawClick', function(req) {
+  	req.data.cid = req.io.socket.id;
     req.io.broadcast('draw', req.data);
 })
 
-app.io.on('connection', function(){
+app.io.on('connection', function(client){
   console.log('connection recieved');
 });
 
