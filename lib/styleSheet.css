@@ -1,0 +1,22 @@
+.drawTools {
+    background-color: #C1C1C1;
+}
+
+#title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 250%;
+    background-color: #A1A1A1;
+}
+.drawButton {
+    width: 20px;
+    height: 20px;
+}
+
+#canvas {
+    cursor:url('../icons/pencil.png') 5 100, auto;
+}
+
+#colorIn {
+    width: 60;
+}

@@ -18,5 +18,6 @@ app.get('/', function(req, res) {
 
 app.use('/jscolor', express.static(__dirname + '/jscolor'));
 app.use('/icons', express.static(__dirname + '/icons'));
+app.use('/lib', express.static(__dirname + '/lib'));
 
 app.listen(8080);
