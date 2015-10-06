@@ -1,21 +1,29 @@
 var express = require('express.io');
 var app = express().http().io();
-var appmetrics = require('appmetrics-dash').start(); 
+var appmetrics = require('appmetrics-dash').start();
 
 // Broadcast all draw clicks.
 app.io.route('drawClick', function(req) {
   	req.data.cid = req.io.socket.id;
-    req.io.broadcast('draw', req.data);
-})
+    var room = req.data.room;
+    console.log(room);
+    // req.io.broadcast.to(room).('draw', req.data);
+    req.io.room(room).broadcast('draw', req.data);
+});
 
-app.io.on('connection', function(client){
+app.io.on('connection', function(socket){
   console.log('connection recieved');
+});
+
+app.io.route('joinRoom', function(socket) {
+    socket.io.join(socket.data)
 });
 
 // Send client html.
 app.get('/', function(req, res) {
     res.sendfile(__dirname + '/client.html');
 });
+
 
 app.use('/jscolor', express.static(__dirname + '/jscolor'));
 app.use('/icons', express.static(__dirname + '/icons'));

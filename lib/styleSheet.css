@@ -20,3 +20,22 @@
 #colorIn {
     width: 60;
 }
+
+#container {
+  display: none;
+}
+
+#room-selector {
+  margin-top: 80px;
+  text-align:center;
+  font-family: serif;
+  font-size: 1em;
+}
+
+#room-selector button{
+  margin: 20px;
+  width: 10em;
+  height: 5em;
+  font-family: serif;
+  font-size: 1em;
+}
