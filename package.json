@@ -1,10 +1,11 @@
 {
-  "name": "CasconDemo",
-  "version": "0.0.1",
+  "name": "cascon-demo",
+  "version": "0.0.4",
   "description": "Collaborative whiteboard app",
   "dependencies": {
     "express": "*",
-    "express.io": "~1.1.13"
+    "express.io": "~1.1.13",
+    "appmetrics-dash": "*"
   },
   "engine": "node >=0.6.x"
 }
