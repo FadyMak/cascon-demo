@@ -2,11 +2,19 @@
     background-color: #C1C1C1;
 }
 
+#turn{
+  color: red;
+  font-weight: bold;
+  font-size: 150%;
+}
 #title {
     text-align: center;
     font-weight: bold;
     font-size: 250%;
     background-color: #A1A1A1;
+}
+#room{
+  color: blue;
 }
 .drawButton {
     width: 20px;

@@ -15,28 +15,29 @@
   <button id="btn-lobby" data-room="lobby">Lobby</button>
 </div>
 <div id="container">
+  <div id="title">
+      CASCON 2015 - NODE JS CANVAS DEMO
+      <div id="room"></div>
+  </div>
+  <div id="turn"></div>
   <div class="drawTools">
-      <div id="title">
-          CASCON 2015 - NODE JS CANVAS DEMO
-      </div>
-      Tools:
-      <input class="color" id="colorIn" value="000000" onchange="colorChange()">
-      <input class="drawButton" id="pencilIn" type="image" src="icons/pencil.png" value="Pencil" onclick="pencil()">
-      <input class="drawButton" id="brushIn" type="image" src="icons/paintbrush.png" value="Brush" onclick="paintBrush()">
-      <input class="drawButton" id="eraseIn" type="image" src="icons/eraser.png" value="Eraser" onclick="eraser()">
-      <select class="resize" id="resizeIn" value="10" onchange="resize()">
-        <option selected="true" disabled="disabled" value="10">SIZE</option>
-        <option value="10">10</option>
-        <option value="15">15</option>
-        <option value="20">20</option>
-        <option value="25">25</option>
-        <option value="30">30</option>
-        <option value="35">35</option>
-        <option value="40">40</option>
-        <option value="45">45</option>
-        <option value="50">50</option>
-      </select>
-      <p id="turn"></p>
+  Tools:
+  <input class="color" id="colorIn" value="000000" onchange="colorChange()">
+    <input class="drawButton" id="pencilIn" type="image" src="icons/pencil.png" value="Pencil" onclick="pencil()">
+    <input class="drawButton" id="brushIn" type="image" src="icons/paintbrush.png" value="Brush" onclick="paintBrush()">
+    <input class="drawButton" id="eraseIn" type="image" src="icons/eraser.png" value="Eraser" onclick="eraser()">
+    <select class="resize" id="resizeIn" value="10" onchange="resize()">
+      <option selected="true" disabled="disabled" value="10">SIZE</option>
+      <option value="10">10</option>
+      <option value="15">15</option>
+      <option value="20">20</option>
+      <option value="25">25</option>
+      <option value="30">30</option>
+      <option value="35">35</option>
+      <option value="40">40</option>
+      <option value="45">45</option>
+      <option value="50">50</option>
+    </select>
   </div>
   <canvas id="canvas" width="1250" height="600" style=""></canvas>
 </div>
