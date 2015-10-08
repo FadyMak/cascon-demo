@@ -6,8 +6,7 @@ var appmetrics = require('appmetrics-dash').start();
 app.io.route('drawClick', function(req) {
   	req.data.cid = req.io.socket.id;
     var room = req.data.room;
-    console.log(room);
-    // req.io.broadcast.to(room).('draw', req.data);
+    // console.log(room);
     req.io.room(room).broadcast('draw', req.data);
 });
 
