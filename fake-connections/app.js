@@ -16,6 +16,7 @@ function createConnection() {
   var socket = require('socket.io-client');
   io = socket.connect('http://localhost:8080', { 'force new connection': true });
   console.log("connection created");
+  io.emit('joinRoom', 'lobby');
   ioConnections.push(io);
 }
 

@@ -23,6 +23,7 @@
 
 #container {
   display: none;
+  text-align: center;
 }
 
 #room-selector {
@@ -38,4 +39,12 @@
   height: 5em;
   font-family: serif;
   font-size: 1em;
+}
+
+body {
+  background-color: #d3d3d3;
+}
+
+canvas {
+  background-color: white;
 }
