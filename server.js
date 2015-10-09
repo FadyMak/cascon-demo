@@ -39,7 +39,8 @@ for(var room in userList){
                 curUser[r] = userList[r][i];
                 console.log(curUser[r]);
                 app.io.room(r).broadcast('currentUser', curUser[r])
-                if (i++ < userList[r].length) {          // If i < length, keep going
+                i++
+                if (i < userList[r].length) {          // If i < length, keep going
                     theLoop(i, r);       // Call the loop again, and pass it the current value of i
                 } else {
                     i = 0;
