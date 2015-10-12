@@ -13,6 +13,25 @@ app.io.route('drawClick', function(req) {
 
 app.io.on('connection', function(socket){
   console.log('connection recieved');
+  socket.on('disconnect', function() {
+    // remove the disconnected socket from the room list
+    for (var room in socket['manager']['rooms']){
+      if (room === ''){
+        var index = userList['lobby'].indexOf(socket.id);
+        if (index > -1) {
+            userList['lobby'].splice(index, 1);
+        }
+      }else{
+        roomStr = room.slice(1)
+        var index = userList[roomStr].indexOf(socket.id);
+        if (index > -1) {
+            userList[roomStr].splice(index, 1);
+        }
+      }
+    }
+    console.log('Someone disconnected: ' + socket.id);
+    console.log(socket['manager']['rooms'])
+  });
 });
 
 app.io.route('joinRoom', function(socket) {
@@ -37,7 +56,7 @@ for(var room in userList){
         (function theLoop(i, r) {
             setTimeout(function () {
                 curUser[r] = userList[r][i];
-                console.log(curUser[r]);
+                console.log(userList[r]);
                 app.io.room(r).broadcast('currentUser', curUser[r])
                 i++
                 if (i < userList[r].length) {          // If i < length, keep going
@@ -47,6 +66,6 @@ for(var room in userList){
                     theLoop(i, r);
                 }
             }, 10000);
-        })(0, room); 
+        })(0, room);
     }
 };
