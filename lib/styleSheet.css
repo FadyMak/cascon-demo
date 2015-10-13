@@ -1,37 +1,51 @@
 .drawTools {
-    background-color: #C1C1C1;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: white;
+    font-weight: bold;
+    font-size: 200%;
 }
 
 #home {
   float: left;
 }
 #turn{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: red;
   font-weight: bold;
   font-size: 150%;
+  background-color: black;
 }
 #title {
+    font-family: "Comic Sans MS", cursive, sans-serif;
     text-align: center;
     font-weight: bold;
     font-size: 250%;
-    background-color: #A1A1A1;
+    background-color: white;
 }
 #room{
   color: blue;
 }
-.drawButton {
-    width: 20px;
-    height: 20px;
+.color {
+    width: 40px;
+    height: 40px;
 }
+.drawButton {
+    width: 40px;
+    height: 40px;
+}
+.resize {
+    width: 60px;
+    }
 
 #canvas {
-    cursor:url('../icons/pencil.png') 5 100, auto;
+    cursor:url('../icons/cpen.png') 5 100, auto;
 }
 
+/*
 #colorIn {
     width: 60;
 }
-
+*/
 #container {
   display: none;
   text-align: center;
@@ -53,9 +67,12 @@
 }
 
 body {
-  background-color: #d3d3d3;
+  background-color: black;
 }
 
 canvas {
+  border-style: solid;
+  border-width: 3px;
+  border-color: gray;
   background-color: white;
 }
