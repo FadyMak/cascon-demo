@@ -21,7 +21,7 @@ function createConnection() {
 }
 
 function drawEmit(io, index, ar){
-    console.log('connection ', index, ' drawing');
+    // console.log('connection ', index, ' drawing');
 
     var startx = Math.floor(Math.random() * 800) + 100;
     var starty = Math.floor(Math.random() * 600) + 100;

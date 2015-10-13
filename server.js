@@ -29,8 +29,8 @@ app.io.on('connection', function(socket){
         }
       }
     }
-    console.log('Someone disconnected: ' + socket.id);
-    console.log(socket['manager']['rooms'])
+    // console.log('Someone disconnected: ' + socket.id);
+    // console.log(socket['manager']['rooms'])
   });
 });
 
@@ -56,7 +56,7 @@ for(var room in userList){
         (function theLoop(i, r) {
             setTimeout(function () {
                 curUser[r] = userList[r][i];
-                console.log(userList[r]);
+                // console.log(userList[r]);
                 app.io.room(r).broadcast('currentUser', curUser[r])
                 i++
                 if (i < userList[r].length) {          // If i < length, keep going
