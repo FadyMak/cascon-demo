@@ -5,17 +5,19 @@
     font-size: 200%;
 }
 
-/*
-#home {
+
+#logo {
+  width: 330px;
+  height: 141px;
   float: left;
 }
-*/
+
 #turn{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: red;
+  color: white;
   font-weight: bold;
   font-size: 150%;
-  background-color: black;
+  background-color: #FF6300;
 }
 #title {
     font-family: "Arial Black", Gadget, sans-serif;
@@ -39,11 +41,11 @@
     height: 40px;
 }
 .resize {
-    width: 60px;
+    width: 80px;
     }
 
 #canvas {
-    cursor:url('../icons/cpen.png') 5 100, auto;
+    cursor:url('../icons/cpen.png') 0 100, auto;
 }
 
 /*
@@ -61,6 +63,7 @@
   text-align:center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 1em;
+  
 }
 
 #room-selector button{
@@ -72,7 +75,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: #FF6300;
 }
 
 canvas {
