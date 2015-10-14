@@ -5,9 +5,11 @@
     font-size: 200%;
 }
 
+/*
 #home {
   float: left;
 }
+*/
 #turn{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: red;
@@ -16,14 +18,17 @@
   background-color: black;
 }
 #title {
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: "Arial Black", Gadget, sans-serif;
     text-align: center;
     font-weight: bold;
-    font-size: 250%;
+    font-size: 300%;
     background-color: white;
 }
 #room{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 250%;
   color: blue;
+  background-color: white;
 }
 .color {
     width: 40px;
@@ -54,7 +59,7 @@
 #room-selector {
   margin-top: 80px;
   text-align:center;
-  font-family: serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 1em;
 }
 
@@ -62,7 +67,7 @@
   margin: 20px;
   width: 10em;
   height: 5em;
-  font-family: serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 1em;
 }
 
